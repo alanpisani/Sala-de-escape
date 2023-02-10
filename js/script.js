@@ -2123,7 +2123,7 @@ function lostGame(){
     // document.getElementById("titulo-formulario").innerHTML = "UPS! SE TE ACABÓ EL TIEMPO";
     // entrarRanking();
 
-  },500); // 1000 milisegundos equivalen a 1 segundo, Delay del cartel del alert
+  },600700); // 1000 milisegundos equivalen a 1 segundo, Delay del cartel del alert
 }
 function secondsToString(seconds) {
   var minute = Math.floor((seconds / 60) % 60);
