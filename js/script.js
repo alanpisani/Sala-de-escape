@@ -2151,3 +2151,5 @@ function gotoRanking(){
   },2000); //Delay del cartel del alert
 }
 
+//escapeNow(); Desactivar el comentario si se quiere ganar el juega automaticamente
+
