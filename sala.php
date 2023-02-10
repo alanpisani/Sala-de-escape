@@ -8,6 +8,7 @@
   <link href="https://fonts.googleapis.com/css?family=Bangers|Cutive+Mono&display=swap" rel="stylesheet">
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.1/css/all.min.css'>
   <link href="css/bootstrap/bootstrap.css" rel="stylesheet" type="text/css">
+  <!-- <link rel="stylesheet" href="css/rankingalan.css"> -->
   <link rel="stylesheet" href="css/estilo.css">
   <link rel="stylesheet" href="css/sala.css">
 
@@ -22,7 +23,7 @@
   <div id="perdiste-che">
     <h1>Ups! Se te acabó el tiempo!</h1>
     <div class="btn-inicio">
-      <a id="inicio" class="btn btn-primary" href="index.html" role="button">IR A INICIO</a>
+      <a id="inicio" class="btn btn-primary" href="ranking.php" role="button">IR AL RANKING</a>
     </div>
   </div>
   <!-- Timer ------------>
