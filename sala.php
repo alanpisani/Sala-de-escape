@@ -22,7 +22,7 @@
   <div id="perdiste-che">
     <h1>Ups! Se te acabó el tiempo!</h1>
     <div class="btn-inicio">
-      <a id="inicio" class="btn btn-primary" href="index.html" role="button">Volver al inicio</a>
+      <a id="inicio" class="btn btn-primary" href="index.html" role="button">IR A INICIO</a>
     </div>
   </div>
   <!-- Timer ------------>
@@ -33,7 +33,7 @@
     </div>
   </div>
   <div class="btn-index">
-    <a id="inicio" class="btn btn-primary" href="index.html" role="button">Volver al inicio</a>
+    <a id="inicio" class="btn btn-primary" href="index.html" role="button">VOLVER AL INICIO</a>
   </div>
 
 

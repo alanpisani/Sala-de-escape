@@ -70,6 +70,11 @@ svg {
   height: 100vh;   /*Aca se modifica el tamaño de la pagina*/
   margin: 0 auto;
 }
+.btn-index{
+  position:absolute;
+  margin-top:-45%;
+}
+
 .puerta{
   position:absolute;
   width: 14%;
@@ -1082,7 +1087,26 @@ input[type=number] {
     height:50%;
 		
 	}
+  .btn-index{
+    position:absolute;
+    margin-top:-90%;
+    width:100px;
+    height:30px;
+  }
+  .btn-index a{
+    font-size:0.64em;
+    padding:0;
+    background-color:blueviolet;
+    width:100%;
+    height:100%;
+  }
+  #perdiste-che h1{
+    font-size: 50px;
+    justify-self: center;          /*Es el mensaje final. Se puede cambiar el color*/
+    align-self: center;
+    color:#04849b;
+  }
 }
 
-}
+
 
