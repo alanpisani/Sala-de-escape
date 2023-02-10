@@ -1,0 +1,75 @@
+*{
+	margin:0;
+	padding:0;
+	box-sizing: border-box;
+}
+html, body{
+	height: 100%;
+	padding: 0;
+}
+#tablas{
+    width: 30%;
+    border:10 px solid red;
+    margin-left:35%;
+}
+h2{
+    color:red;
+	text-align: center;
+	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+#marco{
+    box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.9);
+	border:1px solid black;
+	background-color: #fff;
+    padding:2%;
+    width:30%;
+}
+article{
+    text-align:center;
+}
+.ok{
+	position:absolute;
+	text-align: center;
+	width: 30%;
+	height:23.6%;
+	padding: 12px;
+	background-color: #1e6;
+	color: #fff;
+	z-index:100;
+	margin:0% 35%;
+  }
+h3{
+	text-align: center;
+	position:center;
+  }
+.bad {
+	text-align: center;
+	width: 100%;
+	padding: 12px;
+	background-color: #a22;
+	color: #fff;
+}
+#registro:disabled{
+	color:gray;
+}
+#registro{
+	border:1px solid rgba(0, 0, 0, 0.5);
+	padding:5px;
+	border-radius:10px;
+	box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.1);
+	color:black;
+	
+}
+
+@media (max-width: 1300px){
+	#marco{
+		width:45%;
+		
+	}
+}
+@media (max-width: 850px){
+	#marco{
+		width:60%;
+		
+	}
+}

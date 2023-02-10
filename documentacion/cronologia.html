@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Documentación</title>
+</head>
+
+<body>
+<div class="contenedor">
+    <nav>
+        <header>
+            <a href="documentacion.html">Ir al inicio</a>
+            <ul>
+                <li>
+                    <a class="nav-enlace" href="#parte1">Parte 1: Análisis del código original »</a>
+                    <ul>
+                        <li><a href="#html">Lineas de código HTML</a></li>
+                        <li><a href="#css">Lineas de código CSS</a></li>
+                        <li><a href="#js">Lineas de código JS</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="#parte2">Parte 2: últimos retoque visibles »</a></li>
+                <li><a href="#parte3">Parte 3: Base de datos »</a>
+                    <ul>
+                        <li><a href="#parte3">Xampp</a></li>
+                        <li><a href="#bd">Creación de la base de datos</a></li>
+                    </ul>
+                </li>
+                <li><a href="#parte3.1">Parte 3.1:PHP »</a>
+                    <ul>
+                        <li><a href="#parte3.1">Conexión</a></li>
+                        <li><a href="#form">Formulario</a></li>
+                        <li><a href="#ranking">Ranking</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+    </nav>
+    </header>
+
+    <main>
+        <h1 id="parte1">Parte 1: Análisis del código original</h1>
+        <div>
+            <p>La idea de crear una sala de escape ya estaba pero no sabíamos por donde empezar.<br>
+                A uno de los compañeros se le ocurrió buscar una sala de escape ya armada por otras personas (La cual
+                podes descargar haciendo click <a target="_blank"
+                    href="https://drive.google.com/file/d/1T4KEP6tXtrBCISItefFX3sUXoyl4J7m7/view">acá</a>) y, en base a
+                ella, crear la nuestra propia.
+                La sala de escape tenía un estilo bastante minimalista: fondo negro, dibujos blancos; los cuales
+                algunos, al clickearlos, te mandaban a unos minijuegos que, al resolverlos, abrían los candados que
+                bloqueaban la puerta de salida.</p>
+
+            <div class="img"><img src="https://i.ibb.co/dcSkkJX/Sin-t-tulo.png"></div>
+
+            <p id="html">Como se dijo en el inicio de la documentacion, nos dividimos en varios grupos para realizar
+                diferentes
+                tareas. La de mi grupo, analizar en su totalidad el main de la sala base.<br>
+                Para analizar el escape room original en su totalidad, fue necesario revisar tanto el html como el css y
+                el js. Esto fue lo que llegué a notar:
+            </p>
+        </div>
+        <table>
+            <tr>
+                <th>HTML</th>
+            </tr>
+            <tr>
+                <td class="retoque">linea 11</td>
+                <td>En esta linea de código se encuentra un div con un id de nombre "escaped". Este div contiene un h1
+                    en el que dice, valga la redundancia, "escaped". Este mensaje aparece cuando finalizás el juego.
+                </td>
+            </tr>
+            <tr>
+                <td class="retoque">Linea 1182 hasta 1186</td>
+                <td>Son etiquetas rect. Al comentarlas noté que los dibujos que te redireccionan a los minijuegos se
+                    vuelven eso, solo dibujos. Ya no te redirigen a ningún lado. Los rect poseen cinco atributos: x e y,
+                    que funcionan como coordenadas en la página, lo cual indican en que zona se puede clickear para
+                    enviarte a los minijuegos, width y height para darle medidas a esas coordenadas y una clase.</td>
+            </tr>
+        </table>
+        <p id="css">Más adelante descubirmos con un compañero que los dibujos blancos que se encuentran en el juego
+            original
+            literalmente son dibujos, hechos por coordenadas complejas bajo las etiquetas svg, que a su vez contienen
+            etiquetas hijas G y path.</p>
+        <table>
+            <tr>
+                <th>CSS</th>
+            </tr>
+            <tr>
+                <td class="retoque">linea 53: body</td>
+                <td>Acá se encuentra siendo editado el body. Se puede cambiar el fondo negro de color o bien poner una
+                    imagen de fondo. Al
+                    observar estos retoques al body, descubri la función radial-gradient, es un tipo de degradado con
+                    formas circulares. Se puede lograr un efecto "psicodélico" si se juega un poco con esta función.
+                </td>
+            </tr>
+            <tr>
+                <td class="retoque">Linea 62: svg</td>
+                <td>Posee width y height. Al modificarlos, cambia el tamaño del juego entero. Debe venir de la mano con
+                    las etiquetas svg que se encuentran en el html, mas no quise profundizar.</td>
+            </tr>
+            <tr>
+                <td class="retoque">Linea 83: hovers</td>
+                <td>Varios ids (#) que llevan hovers. Investigando mejor se descubrió que eran ids de botones (btn).
+                    Hacen referncia a los minijuegos en el main. El hover solo cumple una funcion: cursor: pointer. La
+                    flecha del mouse cambia de forma a la del dedo (suele aparecer cuando deseamos clickear un link).
+                </td>
+            </tr>
+            <tr>
+                <td class="retoque">Linea 855: candados</td>
+                <td>El juego posee seis candados que se abren al finalizar los minijuegos. En esta linea se puede
+                    cambiar el color de los mismos.</td>
+            </tr>
+            <tr>
+                <td class="retoque">Linea 860: candados abiertos</td>
+                <td>Cuando un candado se abre,
+                    éste cambia de color. En esta linea podemos cambiar esos colores a nuestro gusto.</td>
+            </tr>
+            <tr>
+                <td class="retoque">Linea 910: #escaped h1</td>
+                <td>Al finalizar el juego, aparece un h1 que dice "ESCAPED". En esta linea se puede modificar tanto el
+                    tamaño del mismo como también el color, la ubicación, la fuente, etc.</td>
+            </tr>
+        </table>
+        <p id="js">En cuando al js, pude notar:</p>
+        <table>
+            <tr>
+                <th>JAVASCRIPT</th>
+            </tr>
+            <tr>
+                <td class="retoque">linea 104: mas hover</td>
+                <td>En esta linea para abajo figuran varios getElementById. Al borrarlos, el hover que cambia de color a
+                    los minijuegos desaparece. Se debe a que los colores estan guardados en variables dentro del JS y
+                    luego son enviados al css. Al borrar estos "document", no sería posible enviar un color porque no se
+                    le estaría indicando a cual ID aplicárselo.
+                </td>
+            </tr>
+            <tr>
+                <td class="retoque">Linea 757: función onclick</td>
+                <td>Una función que, al hacer click a uno de los minijuegos, te permite jugarlo. No se puede entrar a
+                    dicho minijuego si se borra esta función. </td>
+            </tr>
+            <tr>
+                <td class="retoque">Linea 1916: EscapeNow()</td>
+                <td>Función que se encarga de mandar el mensaje "escaped" y abrir la puerta una vez finalizado el juego.
+                    Si se borra esta función, el juego no termina. Nunca se abre la puerta.
+                </td>
+            </tr>
+        </table>
+        <p>Un par de días más tarde, un compañero del grupo me comentó acerca del atributo stroke, la cual define el
+            color de las lineas dibujadas por path (ver etiquetas svg en el html). Investigando más a fondo acerca de
+            los atributos para svg, aprendi que la propiedad stroke-width modifica el grosor de dichas lineas dibujadas.
+        </p>
+        <div class="img"><img src="https://i.ibb.co/Fwhr0hS/Sin-t-tulo.png"
+                title="Ejemplo de stroke. Se le da a la maceta un stroke=red"></div>
+        <p>Teniendo todo esto en cuenta, se pudo empezar a editar el main de la sala de escape: </p>
+        <ul>
+            <li>Se cambiaron de color la mayoria de los dibujos predefinidos en la sala de escape original.</li><br>
+            <li>En un principio se cambió el fondo oscuro por uno estilo psicodélico aplicando la función
+                radial-gradient en css, pero luego se optó por poner una imagen como background.</li><br>
+            <li>Algunos dibujos fueron reemplazados por imágenes, como por ejemplo la puerta. Primero se "borraron" las
+                etiquetas path en html y despúes la reemplazamos por pics.</li><br>
+            <li>Se tradujo todo el main al español, ya que originalmente estaba en inglés</li>
+            <li>A la puerta abierta se le introdujo un gif como background-image.</li>
+        </ul>
+        <h1 id="parte2">Parte 2: Últimos retoques visibles.</h1>
+        <p>En el juego original, dos de los juegos no se entendian del todo, al menos que le des unos buenos intentos.
+            No parecía buena idea que estèn, asi que los borramos. Como? Primero desapareciendolos visiblemente, como
+            por
+            ejemplo en la linea 873 del html. Alli se encuentra la estructura de uno de los juegos. Comentamos ese g y
+            listo. El juego desaparecio del main.</p>
+        <div class="img"><img src="https://i.ibb.co/xLZb2X8/Sin-t-tulo.png"></div>
+        <p>Y tambien comentando en la linea 122 de javascript (En el caso de ese juego en concreto. Recordemos que en
+            total borramos dos). Si llegò a haber alguna otra modificación más para poder borrar ambos juegos en su
+            totalidad, sinceramente no lo recuerdo. Incluso los candados que correspondían a los dos juegos tambie
+            fueron borrados.</p>
+        <p>Más adelante se implementaría el timer. El timer es un temporizador. Se implementó con la idea de que el
+            juego tenga una cuenta regresiva o un tiempo limite.</p>
+        <p>Básicamente ya fue explicado todo lo visualmente aplicado. La sala de escape quedó asi (Ignoren el boton
+            turqueza. Será explicado más adelante):</p>
+        <div class="img"><img src="https://i.ibb.co/xfb2Gg5/Sin-t-tulo.png" alt=""></div>
+        <h1 id="parte3">Parte 3: Base de datos</h1>
+        <p>El main ya prácticamente estaba terminado pero faltaba algo importante: El ranking. Tuvimos la idea de crear
+            un ranking que mostrara el nombre del usuario y tambien del tiempo que le llevó terminar el juego por
+            completo. Para eso se necesitó crear una base de datos local en donde se guardara dichos datos. El proceso
+            no fue muy sencillo ya que no tenia conocimiento en base de datos, pero la idea me gustó tanto que decidí
+            indagar al respecto.</p>
+        <p>Para crear una base de datos, primero se necesita levantar un servidor. Utilizamos Xampp. <br> Una vez
+            descargado e instalado el servidor, lo ejecutamos. Ni bien aparece la ventana, figuran 5 modules: Apache,
+            MySQL, FilleZilla, Mercury y Tomcat. En nuestro caso solo vamos a darle start en Apache y en MySql.</p>
+        <div class="img"><img src="https://i.ibb.co/Vm62FpM/Sin-t-tulo.png" alt=""></div>
+        <p>Una vez levantado el servidor, abrimos nuestro navegador favorito y ponemos "localhost/phpmyadmin". Va a
+            aparecer como un panel de control donde se peude manipular todo lo referido a una base de datos, o mas de
+            una, ¿por qué no? Reitero que debe levantarse si o si primero el servidor, ya que si se intenta entrar a
+            "localhost/phpmyadmin" sin darle a start a Apache y MySQL, no vas a poder entrar a este panel de control de
+            base de datos.</p>
+        <p>Recién a estas alturas me di cuenta que iba a tener que aprender algo de php. ¿Qué es php? No sabría decirlo
+            pero bueno. Sería algo asi como el lenguaje de programación que se va a encargar de conectar la base de
+            datos
+            con la pagina web. Más adelante se detallará más acerca de este lenguaje.</p>
+        <div class="img"><img src="https://i.ibb.co/JjBv6C6/Sin-t-tulo.png" title="localhost/phpmyadmin"></div>
+        <p id="bd">Ese es el panel de control. Ahora para crear la base de datos, se debe ir en donde dice nueva, en el
+            lado
+            izquierdo. Va a aparecer un input que nos pide que ingresemos el nombre de la base de datos que deseamos
+            ingresar. Yo le puse de nombre "registro" (sin las comillas).</p>
+        <p>La base de datos está creada y se encuentra sobre el lado izquierdo, pero no contiene nada. Se le debe crear
+            tablas. Esas tablas son las que van a contener los datos.<br>Si hacemos click en la base de datos (la que se
+            acaba de crear, registro) van a aparecer dos inputs. Uno donde se ingresa el nombre de la tabla y el otro
+            donde se tiene que indicar la cantidad de columnas que contendrá dicha tabla. En este caso la tabla se llama
+            "datos" (sin comillas) y contiene unas 3 columnas.<br>Una vez creada la tabla, van a aparecer mas inputs,
+            donde se debe detallar la información que va a contener cada columna.</p>
+        <div class="img"><img src="https://i.ibb.co/kXzGdWD/Sin-t-tulo.png" alt=""></div>
+        <p>A la primer columna le puse de nombre id, de tipo INT. Es de tipo INT porque esa columna solo va a obtener
+            valores ENTEROS. En longitud/valores le puse 256, porque me parece que ese es el maximo por columna; lo
+            máximo que puede contener. Le activé la casilla A_I. Esa casilla indica que ID va a ser autoincremental;
+            arranca de 0 y va avanzando a medida que se le meta más datos a la base. Nunca se implementó realmente el ID
+            al juego pero estuvo bueno saber estas cosas como el A_I.<br>A la segunda casilla le puse de
+            nombre... nombre. En tipo le puse Varchar, porque va a contener caracteres. Si bien el tipo text también
+            puede contener caracteres, Varchar puede poner un limite máximo de los mismos. Como en este caso la columna
+            va a contener un nombre, se me hizo más sensato que la columna sea de tipo Varchar. De longitud le puse
+            30.<br>Por último le puse a la tercer columna el nombre "tiempo". Esta columna estaba pensada para que
+            contenga el tiempo que se cumplió al resolver el juego por completo. De tipo le puse Varchar.¿Por qué?
+            Porque si bien el tiempo en si está compuesto por números, en el centro posee dos puntos. Aparte la funcion
+            del timer devuelve el tiempo como strings. De longitud le puse 5 porque la idea era que el timer llegue
+            hasta 5 minutos. Una vez que el timer llega al tiempo limite, el juego se acabó y se pierde el juego. Cinco
+            minutos se ve como "05:00". Son 5 de longitud en total.<br>Una vez completadas las columnas, click en
+            guardar.</p>
+        <p>Ya se creo una tabla. Hace falta otra. Creé una segunda tabla de nombre "tiempo", que contiene una sola
+            columna también llamada tiempo, tipo Varchar y longitud de 5. Esta segunda tabla es la que realmente va a
+            almacenar el tiempo en primer lugar pero con php vamos a enviar este dato a la primer tabla, la llamada
+            datos. Luego explico el por qué de tanto lio.</p>
+        <div class="img"><img src="https://i.ibb.co/MhJ1LsR/Sin-t-tulo.png" alt=""></div>
+        <p>LISTO. La base de datos ya fue creada en su totalidad. Solo falta que se almacenen los datos a la misma. Ahi
+            es cuando entra en juego PHP.</p>
+        <h1 id="parte3.1">Parte 3.1: PHP</h1>
+        <h3>Conexión</h3>
+        <P>Como mencioné antes, PHP funciona como conector entre la página web y la base de datos. Va a ser la encargada
+            de darle órdenes "dinámicas", por decirlo de alguna manera (Ya que algunas cosas se pueden emplear dentro
+            del mismo MySql, pero de manera muy manual).</P>
+        <p>Primero lo primero. Se debe hacer la conexión. En mi caso creé un documento nuevo .php de nombre con_db(con
+            de conexion y db de data base (base de datos)). Dentro del documento,se debe abrir la etiqueta que nos
+            permite ejecutar acciones php. Esta etiqueta es "?php" (con signo menor al
+            principio, como cuando crear ua etiqueta) y se cierra con "?>". Una vez ya puesta la etqiueta php, dentro
+            creé una variable llamada conex, haciendo referencia a la conexión. Las variables en php se declaran con el
+            signo $ adelante. En este caso, la variable se veria asi: "$conex". A $conex le asigno esta funcion con
+            estos parametros: "mysqli_connect("localhost","root","","registro")" y cierro con punto y coma.<br>Desde mi
+            experiencia y sin buscar definiciones, la funcion "mysqli_connect" permite hacer la conexion con la base de
+            datos. Los parámetros indicados son información ya implícita de la base de datos, es decir, son información
+            predeterminada que figura o "identifica" a la base de datos. Para que se entienda mejor, el código se vería
+            más o menos asi:</p>
+        <div class="show-code">&lt;?php
+            <br>
+            <p>$conex = mysqli_connect("localhost","root","","registro");</p><br>?&gt;
+        </div>
+        <p>El parámetro "localhost" CREO que hace referencia al nombre del servidor. Se llama asi por ser local. Root es
+            el nombre de usuario predefinido en la base de datos. el parámetro vacío ("") hcae referencia al
+            acontraseña. Predefinidamente no lleva contraseña, asi que la dejamos asi como está, y "registro" es el
+            nombre de la base de datos que creé con anterioridad.</p>
+        <p>Ahora bien. La conexión ya estaba hecha. Ahora hay que hacer que el usuario pueda ingresar un nombre y que
+            éste se guarde a la base de datos. Para eso implementé un simple formulario que posea un input que indique
+            bajo el atributo "placeholder" que el usuario ingrese su nombre, debajo un botón que indique que clickeando
+            ahi, el usuario se registra, y <br> Había un problema. Con HTML no podía crear dicho formulario. El usuario
+            ingresa el nombre pero por alguna razon este mismo no se guardaba. Tampoco quería quese pudriera registrar
+            alguien sin haber ingresar, al menos, un caracter. La solución que encontré fue, en vez de que el formulario
+            este hecho en un documento html, éste esté en php. De esta manera, por alguna raz{on que desconozco, si
+            tomaba el nombre ingresado por el usuario. En cuanto al segundo problema, una simple función en JS solucionó
+            el problema. Ya voy a entrar en detalle de eso más adelante.</p>
+        <h3 id="form">Formulario</h3>
+        <p>La estructura del formulario fue sencilla: Un cuadro con un titulo dentro, con un input para que el usuario
+            ingrese el nombre más un botón de registrarse. Un poco de diseño con bootstrap y algo de css para pocos
+            detalles y ya está. Ahora lo que falta es hacer que el botón registrar guarde el nombre ingresado a la base
+            de datos. Para eso lo primero que hay que hacer es asignarle a ese botón un name, por ejemplo en este caso:
+            name="register". Ahora creamos un documento php nuevo. Este documento va a ser el encargado de enviar el
+            nombre
+            a la base de datos. Luego a ese doc se le implementa esto:</p>
+        <div class="img"><img src="https://i.ibb.co/gZgwgMR/Sin-t-tulo.png" title="espero que se pueda apreciar..."
+                alt=""></div>
+
+        <p>Para empezar se abre con la etiqueta de php que expliqué con anterioridad. Después se implementa un include.
+            Este include lo que hace es traer la infomación del documento con_bd.php a este documento (El cual se llama
+            registrar.php). La información que trae es justamente la conexión con el servidor. Este include, por lo
+            tanto es sumamente importante.<br>Más adelante se implementa un "if" que indica que si el usuario hace click
+            en el botón que tiene por name "register", que cree dos variables. La primer variable es $name. Esta
+            variable va a contener lo que el usuario haya escrito en el input donde se ingresa el nombre. A este input
+            se le está apuntando por su name, el cual es "name". La segunda variable guarda una consulta, por eso la
+            declaré con el nombre $consulta.<br>Esta variable contiene: ""INSERT INTO datos(nombre) VALUES ('$name')";".
+            Acá lo que se está diciendo es que inserte (INSERT) dentro (INTO) de datos(nombre) (datos hace referencia a
+            la tabla que se encuentro en la base de datos, llamada datos. nombre hace referencia a una de las columnas
+            que se encuentra en la tabla datos) los valores (VALUES) de ('$name'). En resumidas cuentas, se está
+            pidiendo una consulta que dice que se guarde en la base de datos el contenido de la variable $name, el cual
+            es el nombre que ingresó el usuario.<br>La consulta se hizo pero hay que ejecutarla. Para eso está la
+            variable $resultado. Esta variable contiene una función llamada "mysqli_query" con los parámetros
+            (($conex,$consulta), los cuales el primer parámetro es la variable que conecta con el servidor y el segundo
+            parámetro es la consulta.</p>
+        <p>Luego hay otro if. Que indica que si resultado da TRUE, es decir, si la ejecucion de la consulta se ejecuta
+            correctamente, que aparezca una etiqueta h3 en pantalla que indique que el usuario se pudo registrar. En
+            else, que indique otro h3 que hubo un error al registrarse. Si se puede ver en la ultima imagen, el
+            contenido de estos ultimos if/else figuran etiquetas php pero en sentido invertido, es decir, primero
+            aparece ?&gt; y luego &lt;?php. Se me ocurren un par de razones para creer en por qué se debe esto, pero no
+            tengo mucho tiempo para explayarlo. En fin, estos h3 tienen diseño propio en el css.<br>Ya el documento está
+            listo pero hay que linkearlo en el documento del formulario. ¿cómo? Con un include abajo de la estructura
+            del formulario que diga: &lt;?php include("conexion/registrar.php");?&gt; (conexion/ hace referencia a la
+            carpeta donde se encuentra alojado el documento "registrar")</p>
+        <div class="img"><img src="https://i.ibb.co/myRQWnk/Sin-t-tulo.png" alt=""></div>
+        <p>El formulario está casi listo. Solo falta solucionar un problema: No debería poder registrar nadie al menos
+            que ingrese como mínimo un caracter en el nombre. La idea fue primero hacer inclickeable el botón registrar,
+            después en javascript crear funciones que activen el botón cuando se haya escrito algo en el input del
+            nombre. Si descargaron el juego semiterminado en la página de inicio, pueden observar en el archivo
+            index.js, que se encuentra dentro de la carpeta js, toda la funcion que se ejecuta para dicho proceso. El
+            documento está lleno de comentarios detallando todo el proceso. Los invito a que lo lean para más
+            información<br>Listo. Formulario de registro de usuario terminado.</p>
+        <h3 id="ranking">Ranking</h3>
+        <p>Acá se había presentado un gran problema. No encontraba manera de poder guardar el tiempo del timer en la
+            misma tabla "datos" donde se habia guardado el nombre del usuario. Por más que lo intentara, el tiempo se
+            guardaba en una columna diferente, con un nombre de usuario vacío. Era un problemón porque a la hora de
+            crear el ranking, la idea era que se genere una tabla de posicion automaticamente pero no habia manera de
+            relacionar tanto el nombre de usuario como el tiempo logrado por el jugador. <br> Se me habían ocurrido dos
+            soluciones, la segunda mucho mejor que la primera. Una era crear dos template strings. En el primero
+            contendria la apertura de la etiqueta table y la columna donde muestra el nombre del usuario. En el segundo
+            contendria otra columna donse se muestre el tiempo y recién ahi cerrar el /table. No funcionó. La tabla se
+            mostraba deforme, rota. La segunda solución era que el tiempo se guarde en otra tabla (la que creamos,
+            llamada "tiempo" con una columan con el mismo nombre) y que luego, de alguna manera, mandar la informacion
+            de esa tabla a la primera (datos). Se pudo pero no fue muy fácil dar en el clavo.</p>
+        <p>Para que el tiempo se guarde en la base de datos llamada "tiempo" habia que aplicar exactamente lo mismo que
+            se hizo en el input del nombre de usuario, pero esta vez en el input del timer. Tmbien se le agregó al lado
+            del timer un botón que dice "guardar tiempo" el cual solo se activa cuando el jugador gana o pierde. Para
+            información mas detallada, hay comentarios en el archivo "registrar-tiempo.php" en la carpeta
+            "conexion".<br>Hablando del documento "registrar-tiempo.php", Aca fue donde se aplicó una especie de comando
+            sql en el que envía info de la tabla "tiempo" a la tabla "datos"</p>
+        <div class="show-code">&lt;?php
+            <br>
+            <p>$consultaCombinacion = "UPDATE datos SET tiempo = '$tiempo' WHERE tiempo = ''";</p><br>?&gt;
+        </div>
+        <p>Se está haciendo una consulta en la que dice que actualice (UPDATE) datos (la tabla llamada "datos")
+            ingresando (SET) tiempo = '$tiempo'(tiempo sin comillas hace referencia a la columna llamada tiempo que se
+            encuentra en la tabla "datos". '$tiempo' hace referencia a la variable que contiene los valores de la
+            columna 'tiempo' que se encuentra en la tabla llamada 'tiempo'), WHERE tiempo = ''(que actualice DONDE la
+            columan 'tiempo' de la tabla 'datos' tenga caracteres vacios). De esta manera reemplaza las columnas vacías
+            que se encuentran en datos(tiempo) por la información que contiene tiempo(tiempo).<br> Luego de hacer la
+            consulta, se la ejecuta, como vimos anteriormente como se hace.</p>
+        <p>Ahora si. Tenemos una tabla llamada datos que contiene tanto el nombre de usuario como el tiempo realizado al
+            ganar el juego (o perder, es decir, 05:00 min). De esta manera se hizo mucho más facil la realización de la
+            tabla de posiciones en la página ranking. Para ver la estructura de la misma, podés observar los códigos en
+            ranking.php.<br> Con toda la estructura, el back y el diseño, el ranking quedó más o menos asi:</p>
+        <div class="img"><img src="https://i.ibb.co/gSFBLMF/Sin-t-tulo.png" alt=""></div>
+
+        <p>Con esto doy por finalizada la documentación. Está centrada más que nada en lo que hizo mi grupo y yo:
+            Analizar el main original, poder editarlo y aplicar una base de datos local. Espero que se hay podido
+            entender.</p>
+    </main>
+</div>
+
+
+
+</body>
+
+</html>
