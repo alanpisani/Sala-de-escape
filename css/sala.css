@@ -136,13 +136,12 @@ svg {
   text-align: center;
   position:absolute;
   margin-bottom:40%;
-  
 }
 
 #timer {
   background: white;
   color: #000;
-  width: 75px;
+  width: 70px;
   margin: 50px auto;
   height:auto;
 }
@@ -1085,8 +1084,12 @@ input[type=number] {
 	#marco{
 		width:auto;
     height:50%;
-		
 	}
+  #js_timer {
+    text-align: center;
+    position:absolute;
+    margin-bottom:60%;
+  }
   .btn-index{
     position:absolute;
     margin-top:-90%;
