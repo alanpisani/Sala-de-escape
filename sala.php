@@ -32,6 +32,10 @@
       <label id="minutes">00</label>:<label id="seconds">00</label>
     </div>
   </div>
+  <div class="btn-index">
+      <a id="inicio" class="btn btn-primary" href="index.html" role="button">Volver al inicio</a>
+    </div>
+  </div>
 
   <!---------------------->
 
