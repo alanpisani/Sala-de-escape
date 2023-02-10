@@ -2115,15 +2115,15 @@ function lostGame(){
     //window.alert("¡Se te acabó el tiempo!");
     //window.location = 'ranking.php';
     stopTimer();
-    //document.getElementById("perdiste-che").style.visibility = "visible";
+    document.getElementById("perdiste-che").style.visibility = "visible";
     
     let valor = secondsToString(totalSeconds);
     document.getElementById("caja_valor").value = valor;
-    document.getElementById("overlay").style.visibility = "visible";
-    document.getElementById("titulo-formulario").innerHTML = "UPS! SE TE ACABÓ EL TIEMPO";
-    entrarRanking();
+    // document.getElementById("overlay").style.visibility = "visible";
+    // document.getElementById("titulo-formulario").innerHTML = "UPS! SE TE ACABÓ EL TIEMPO";
+    // entrarRanking();
 
-  },600700) // 1000 milisegundos equivalen a 1 segundo, Delay del cartel del alert
+  },500); // 1000 milisegundos equivalen a 1 segundo, Delay del cartel del alert
 }
 function secondsToString(seconds) {
   var minute = Math.floor((seconds / 60) % 60);
