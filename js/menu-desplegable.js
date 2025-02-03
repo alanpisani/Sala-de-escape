@@ -1,9 +1,8 @@
 $(document).ready(main);
-
 var cont = 1;
 
 function main(){
-    $('.menu-btn').click(function(){
+    $('span').click(function(){
         //$('nav').toggle();
 
         if (cont == 1){
@@ -20,3 +19,4 @@ function main(){
 
     })
 }
+
